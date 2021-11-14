@@ -6,17 +6,17 @@ Heart diseases is a term covering any disorder of the heart. Heart diseases have
 
 ## Dataset
 
-The Dataset used in this project is UCI Heart Disease Dataset (https://archive.ics.uci.edu/ml/datasets/Heart+Disease?spm=5176.100239.blogcont54260.8.TRNGoO) This is also available in Kaggle platform.
+The Dataset used in this project is UCI Heart Disease Dataset (https://archive.ics.uci.edu/ml/datasets/Heart+Disease?spm=5176.100239.blogcont54260.8.TRNGoO)
 
-## Load Dataset
+This is also available in Kaggle platform.
 
-  dataset=pd.read_csv("heart.csv")
-  
-  
+## Loading the Dataset
+
+    dataset=pd.read_csv("heart.csv")
   
 ### Checking for Null Values
 
-  dataset.isnull().sum()
+    dataset.isnull().sum()
   
 This dataset doesnt have any null values, so we dont need to preprocess the data
 
@@ -34,17 +34,17 @@ This dataset doesnt have any null values, so we dont need to preprocess the data
 
 ### Creating Training and Test datasets
 
-  array = dataset.values
-  x = array[:,0:13]
-  y = array[:,13]
-  x_train,x_test,y_train,y_test = train_test_split(x, y, test_size = 0.30, random_state = 1)
+    array = dataset.values
+    x = array[:,0:13]
+    y = array[:,13]
+    x_train,x_test,y_train,y_test = train_test_split(x, y, test_size = 0.30, random_state = 1)
   
 ### Logistic Regression
 
-  model_LR = LogisticRegression()
-  model_LR.fit(x_train,y_train)
-  predictions_LR = model_LR.predict(x_test)
-  print (predictions_LR)
+    model_LR = LogisticRegression()
+    model_LR.fit(x_train,y_train)
+    predictions_LR = model_LR.predict(x_test)
+    print (predictions_LR)
   
 #### Confusion Matrix of Logistic Regression
 
