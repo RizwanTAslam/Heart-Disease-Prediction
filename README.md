@@ -48,99 +48,99 @@ This dataset doesnt have any null values, so we dont need to preprocess the data
   
 #### Confusion Matrix of Logistic Regression
 
-  conf_mat_LR = confusion_matrix(predictions_LR,y_test)
-  print (" Confusion Matrix for Logistic Regression Model: ")
-  conf_mat_LR
+    conf_mat_LR = confusion_matrix(predictions_LR,y_test)
+    print (" Confusion Matrix for Logistic Regression Model: ")
+    conf_mat_LR
   
-  Confusion Matrix for Logistic Regression Model: 
+    Confusion Matrix for Logistic Regression Model: 
   
-  array([[30,  7],
-       [11, 43]], dtype=int64)
+    array([[30,  7],
+         [11, 43]], dtype=int64)
   
 #### Accuracy Score of Logistic Regression
 
-  accuracy_LR = accuracy_score(predictions_LR,y_test)
-  print ("Accuracy for Logistic Regression Model: ")
-  accuracy_LR
+    accuracy_LR = accuracy_score(predictions_LR,y_test)
+    print ("Accuracy for Logistic Regression Model: ")
+    accuracy_LR
   
   
-  Accuracy for Logistic Regression Model: 
+    Accuracy for Logistic Regression Model: 
 
-  0.8021978021978022
+    0.8021978021978022
 
 
 ### Decision Tree
 
-  model_DT = DecisionTreeClassifier()
-  model_DT.fit (x_train, y_train)
-  predictions_DT = model_DT.predict(x_test)
+     model_DT = DecisionTreeClassifier()
+     model_DT.fit (x_train, y_train)
+     predictions_DT = model_DT.predict(x_test)
   
   
 #### Confusion Matrix of Decision Tree
 
-  conf_mat_DT = confusion_matrix (y_test, predictions_DT) 
-  print (" Confusion Matrix for Decission Tree Model: ")
-  conf_mat_DT
+     conf_mat_DT = confusion_matrix (y_test, predictions_DT) 
+     print (" Confusion Matrix for Decission Tree Model: ")
+     conf_mat_DT
   
-   Confusion Matrix for Decission Tree Model: 
+      Confusion Matrix for Decission Tree Model: 
 
-   array([[31, 10],
-       [15, 35]], dtype=int64)
+      array([[31, 10],
+          [15, 35]], dtype=int64)
        
 #### Accuracy Score of Decision Tree
 
-   accuracy_DT = accuracy_score (y_test, predictions_DT)
-  print ("Accuracy for Decision Tree Model: ")
-  accuracy_DT
+      accuracy_DT = accuracy_score (y_test, predictions_DT)
+      print ("Accuracy for Decision Tree Model: ")
+      accuracy_DT
   
   
-  Accuracy for Decision Tree Model: 
+      Accuracy for Decision Tree Model: 
 
-  0.7252747252747253
+      0.7252747252747253
   
 
 #### Plotting the Tree Diagram
 
-  fig, ax = plt.subplots(figsize=(20, 20))
-  plot_tree(model_DT)
+      fig, ax = plt.subplots(figsize=(20, 20))
+      plot_tree(model_DT)
 
 ![DTDia](https://user-images.githubusercontent.com/46325271/141688327-090107f5-bddb-4c28-99bb-8bcd32a2d722.png)
 
 ### Random Forest
 
-  model_RF = RandomForestClassifier()
-  model_RF.fit(x_train,y_train)
-  Predictions_RF = model_RF.predict(x_test)
+      model_RF = RandomForestClassifier()
+      model_RF.fit(x_train,y_train)
+      Predictions_RF = model_RF.predict(x_test)
   
   
 #### Confusion Matrix of Random Forest
 
-  conf_mat_RF = confusion_matrix (y_test, Predictions_RF)
-  print (" Confusion Matrix for Random Forest Model: ")
-  conf_mat_RF
+      conf_mat_RF = confusion_matrix (y_test, Predictions_RF)
+      print (" Confusion Matrix for Random Forest Model: ")
+      conf_mat_RF
   
   
-   Confusion Matrix for Random Forest Model: 
+      Confusion Matrix for Random Forest Model: 
 
-  array([[31, 10],
-       [12, 38]], dtype=int64)
+      array([[31, 10],
+          [12, 38]], dtype=int64)
        
 #### Accuracy Score of Random Forest
 
-  accuracy_RF = accuracy_score (y_test, Predictions_RF)
-  print ("Accuracy for Random Forest Model: ")
-  accuracy_RF
-  
-  
-  Accuracy for Random Forest Model: 
+      accuracy_RF = accuracy_score (y_test, Predictions_RF)
+      print ("Accuracy for Random Forest Model: ")
+      accuracy_RF
 
-  0.7582417582417582
+
+      Accuracy for Random Forest Model: 
+
+      0.7582417582417582
   
   
 #### Plotting the First Tree Diagram of Random Forest
 
-  fig, ax = plt.subplots(figsize=(20, 20))
-  plot_tree(model_RF.estimators_[0])
+      fig, ax = plt.subplots(figsize=(20, 20))
+      plot_tree(model_RF.estimators_[0])
   
   ![RF0](https://user-images.githubusercontent.com/46325271/141688470-2606c2cc-b9de-4c78-ad6a-886a821b7b54.png)
   
@@ -148,22 +148,22 @@ This dataset doesnt have any null values, so we dont need to preprocess the data
 
 ### Comparing Accuracy Score of all the above models
 
-  score = { 'Logistic_Reg': [accuracy_LR] , 'Decision_Tree': [accuracy_DT], 'Random_Forest': [accuracy_RF]}
-  score_df = pd.DataFrame(score)
-  score_df
-  
-   	Logistic_Reg 	Decision_Tree 	Random_Forest
-   	0.802198 	    0.725275 	      0.758242
+      score = { 'Logistic_Reg': [accuracy_LR] , 'Decision_Tree': [accuracy_DT], 'Random_Forest': [accuracy_RF]}
+      score_df = pd.DataFrame(score)
+      score_df
+
+        Logistic_Reg 	Decision_Tree 	Random_Forest
+        0.802198 	    0.725275 	    0.758242
     
   ![plotmodels](https://user-images.githubusercontent.com/46325271/141688589-f5c2198b-ea71-4307-a939-489751dc4227.png)
 
 ### Comparing Confusion Matrix of all the above models
 
-  conf_mat_final = {'Logistic_Reg': conf_mat_LR, 'Decision_Tree': conf_mat_DT, 'Random_Forest': conf_mat_RF}
-  for label,matrix in conf_mat_final.items():
-    plt.title (label)
-    sns.heatmap(matrix, annot=True)
-    plt.show()
+      conf_mat_final = {'Logistic_Reg': conf_mat_LR, 'Decision_Tree': conf_mat_DT, 'Random_Forest': conf_mat_RF}
+      for label,matrix in conf_mat_final.items():
+        plt.title (label)
+        sns.heatmap(matrix, annot=True)
+        plt.show()
     
     
   ![conf_LR](https://user-images.githubusercontent.com/46325271/141688643-85b8b46f-ba04-472d-bb5e-c21a46992a51.png)
@@ -173,8 +173,8 @@ This dataset doesnt have any null values, so we dont need to preprocess the data
 
 ### Result
 
-  The best model is Logistic Regression with accuracy: 
-  0.8021978021978022
+      The best model is Logistic Regression with accuracy: 
+      0.8021978021978022
 
 
 
