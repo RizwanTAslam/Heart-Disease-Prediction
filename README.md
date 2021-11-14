@@ -153,7 +153,7 @@ This dataset doesnt have any null values, so we dont need to preprocess the data
       score_df
 
         Logistic_Reg 	Decision_Tree 	Random_Forest
-        0.802198 	    0.725275 	    0.758242
+        0.802198 	   0.725275 	   0.758242
     
   ![plotmodels](https://user-images.githubusercontent.com/46325271/141688589-f5c2198b-ea71-4307-a939-489751dc4227.png)
 
